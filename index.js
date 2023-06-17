@@ -39,7 +39,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(
   cors({
-    origin: "https://krantieducation.com",
+    origin: true,
     methods: ["GET","POST","PUT","DELETE"],
     allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept", "Authorization"],
     credentials: true,
