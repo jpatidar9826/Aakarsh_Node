@@ -39,7 +39,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(
   cors({
-    origin: false,
+    origin: ["https://648e182ab952094340052cbd--dapper-sunflower-8f01c0.netlify.app/","https://krantieducation.com/","http://0.0.0.0:3000"],
     methods: ["GET","POST","PUT","DELETE"],
     allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept", "Authorization"],
     credentials: true,
