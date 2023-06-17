@@ -40,22 +40,11 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(
   cors({
     origin: "https://krantieducation.com",
-    methods: "GET,POST,PUT,DELETE",
-    allowedHeaders: "Origin, X-Requested-With, Content-Type, Accept, Authorization",
+    methods: ["GET","POST","PUT","DELETE"],
+    allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept", "Authorization"],
     credentials: true,
   })
 );
-
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "https://krantieducation.com");
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-  );
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE");
-
-  next();
-});
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
