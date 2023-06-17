@@ -6,7 +6,7 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const expressSession = require("express-session");
 const passport = require("passport");
-const cors = require("cors");
+var cors = require("cors");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
@@ -41,7 +41,7 @@ app.use(
   cors({
     origin: "https://krantieducation.com",
     methods: "GET,POST,PUT,DELETE",
-    allowedHeaders: "Content-Type,Authorization",
+    allowedHeaders: "Origin, X-Requested-With, Content-Type, Accept, Authorization",
     credentials: true,
   })
 );
