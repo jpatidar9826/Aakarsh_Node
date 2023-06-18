@@ -37,18 +37,20 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "https://krantieducation.com");
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "OPTIONS, GET, POST, PUT, PATCH, DELETE"
-  );
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  if (req.method === "OPTIONS") {
-    return res.sendStatus(200);
-  }
-  next();
-});
+app.use(
+  cors({
+    origin: 'https://krantieducation.com',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: [
+      'Origin',
+      'X-Requested-With',
+      'Content-Type',
+      'Accept',
+      'Authorization',
+    ],
+    credentials: true,
+  })
+);
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);

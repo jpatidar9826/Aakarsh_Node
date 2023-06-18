@@ -6,12 +6,20 @@ const userModel = require("./users.js");
 const productModel = require("./product.js");
 const moduleModel = require("./module.js")
 const cors = require('cors');
-// router.use(cors({
-//   origin: "https://krantieducation.com",
-//   methods: ["GET","POST","PUT","DELETE"],
-//   allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept", "Authorization"],
-//   credentials: true,
-// }));
+router.use(
+  cors({
+    origin: 'https://krantieducation.com',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: [
+      'Origin',
+      'X-Requested-With',
+      'Content-Type',
+      'Accept',
+      'Authorization',
+    ],
+    credentials: true,
+  })
+);
 
 
 //================It's code for aws s3 web servics====================//
