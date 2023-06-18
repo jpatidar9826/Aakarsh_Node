@@ -8,7 +8,7 @@ const moduleModel = require("./module.js")
 const cors = require('cors');
 router.use(
   cors({
-    origin: 'https://krantieducation.com',
+    origin: '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: [
       'Origin',
